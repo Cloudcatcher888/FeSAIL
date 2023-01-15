@@ -8,8 +8,9 @@ python == 3.7
 ```
 
 ## Instruction
+1, Unzip the datasets first.
 
-You can run the code by: 
+2, You can run the code by: 
 ```
-python IMSR.py
+python incrementalguard_thr10_wcp.py
 ```
