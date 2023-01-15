@@ -9,4 +9,7 @@ python == 3.7
 
 ## Instruction
 
-You can run the code by: python IMSR.py
+You can run the code by: 
+```
+python IMSR.py
+```
