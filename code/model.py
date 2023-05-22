@@ -13,6 +13,7 @@ import random
 
 from utils import Config
 
+# define of the base model: Deep Cross Net, which can be replaced by any feature based CTR prediction model.
 class BaseModel(nn.Module):
     def __init__(self, sizes, hidden_factors=EMD_DIM):
         super(BaseModel, self).__init__()
