@@ -52,7 +52,7 @@ def cuda_setting():
 	
 
 
-
+# definition of dataset
 from torch.utils.data import Dataset, DataLoader
 class CriteoDataset(Dataset):
     def __init__(self, categorial_features, labels,start, end):
@@ -80,6 +80,8 @@ class CriteoDataset(Dataset):
         return len(self.labels)
         
 def evaluate(task_idx,model):
+    # evaluate the model on $task_idx th task	
+
     # count = 0
     # tse = 0
     start = int(data_num/task_num*task_idx)
@@ -105,6 +107,7 @@ def evaluate(task_idx,model):
     return auc,logloss
 
 def evaluate_spec(test_loader,model):
+    # evaluate on old/not old samples in $task_idx th task
     # count = 0
     # tse = 0
     loader =  test_loader
@@ -128,8 +131,11 @@ def evaluate_spec(test_loader,model):
 
 
 
-from copy import copy
+
 def olddata_sampler(task_idx,if_random_sample,old_sample_rate, test_on_which,examplar_features,examplar_labels,guards):
+	
+    # the definition of FeSAIL
+    from copy import copy
     temp_guard = [{id:0 for id in range(sizes[_]+1)} for _ in range(num_categorial_feat)]
     tguard2 = [{id:0 for id in range(sizes[_]+1)} for _ in range(num_categorial_feat)]
     addset = set()
