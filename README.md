@@ -1,7 +1,3 @@
----
-typora-root-url: ../FeSAIL
----
-
 # FeSAIL
 
 ## Introduction 
