@@ -14,18 +14,18 @@ import random
 class Config():
     batch_win_size = 10
     num_categorial_feat = 26
-	task_num = 20
-	batch_size = 128
-	EMD_DIM = 16
-	HID_DIM = 128
-	weight_decay = 1e-3
-	lr = 1e-3
-	epoch_num = 20
-	PATIENCE = 2
-	if_random_sample = 0
-	old_sample_rate = 0
-	test_on_which = 2 #0 for old, 1 for all, 2 for unold
-	equal_sample = 0 #1 for equal sample numbers for unsample and random/ours
+    task_num = 20
+    batch_size = 128
+    EMD_DIM = 16
+    HID_DIM = 128
+    weight_decay = 1e-3
+    lr = 1e-3
+    epoch_num = 20
+    PATIENCE = 2
+    if_random_sample = 0
+    old_sample_rate = 0
+    test_on_which = 2 #0 for old, 1 for all, 2 for unold
+    equal_sample = 0 #1 for equal sample numbers for unsample and random/ours
 
 
 def cuda_setting():
@@ -36,11 +36,11 @@ def cuda_setting():
 	if torch.cuda.is_available():
 	    for i in range(4): 
 	        handle = pynvml.nvmlDeviceGetHandleByIndex(i)
-	        meminfo = pynvml.nvmlDeviceGetMemoryInfo(handle)
-	        free_mem = float(meminfo.free/1024**2)
+            meminfo = pynvml.nvmlDeviceGetMemoryInfo(handle)
+            free_mem = float(meminfo.free/1024**2)
 	        print(free_mem)
 	        if free_mem > memory_needed:
- 	           device = torch.device(f'cuda:{i}')
+ 	            device = torch.device(f'cuda:{i}')
 	            break
 	# device = torch.device('cpu')
 	print(f'use {device}')
@@ -64,7 +64,7 @@ class CriteoDataset(Dataset):
 
 		categorial_features = categorial_features.tolist()
 		for field in categorial_features:
-	 	   print(len(set(field)))
+	 	    print(len(set(field)))
 		labels = labels.tolist()
 		sizes = sizes.tolist()
 		data_num = len(labels)
